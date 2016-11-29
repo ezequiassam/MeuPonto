@@ -1,10 +1,12 @@
 package com.example.aluno.myapplication;
 
+import java.io.Serializable;
+
 /**
  * Created by aluno on 14/11/16.
  */
 
-public class Local {
+public class Local implements Serializable{
     private int id;
     private String nome;
     private Double latitude;
