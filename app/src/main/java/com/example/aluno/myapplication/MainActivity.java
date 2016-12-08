@@ -24,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         banco = new Db(this);
 
@@ -32,12 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         ListView apresentarLocais = (ListView) findViewById(R.id.listview);
 
-//        Local ucsal = new Local();
-//        ucsal.setId(1);
-//        ucsal.setNome("Ucsal - Campus Paralela");
-//        ucsal.setLatitude(-12.9494756);
-//        ucsal.setLongitude(-38.5291857);
-//        dao.insert(ucsal);
         List<Local> locais = dao.list();
         ArrayAdapter<Local> adapter = new ArrayAdapter<Local>(this,android.R.layout.simple_list_item_1,locais);
         apresentarLocais.setAdapter(adapter);
